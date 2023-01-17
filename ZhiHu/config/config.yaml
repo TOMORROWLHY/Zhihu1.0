@@ -1,0 +1,27 @@
+app:
+  name: "false_zhihu"
+  mode: "dev" #开发app采用的开发模式
+  port: 8080
+
+log:
+  level: "debug"  #日志记录的级别
+  filename: "ZhiHu.log"   #日志文件的名字
+  max_size: 10   #单位为兆 M
+  max_age: 7 #存储日志的天数
+  max_backups: 1 #最大备份数
+
+mysql:
+  host: "127.0.0.1"
+  port: 3306
+  user: "root"           #mysql用户名
+  password: "@lhy20031018."   #MySQL的密码
+  dbname: "zhihu"  #数据库名称
+  max_open_connect: 200
+  max_idle_connect: 50
+
+redis:
+  host: "127.0.0.1"
+  port: 16379
+  password: ~
+  db: 0
+  pool_size: 100

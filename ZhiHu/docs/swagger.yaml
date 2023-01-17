@@ -1,0 +1,413 @@
+basePath: /
+definitions:
+  api._ResponsePostList:
+    properties:
+      code:
+        description: 业务响应状态码
+        type: integer
+      data:
+        description: 数据
+        items:
+          $ref: '#/definitions/tools.Resp'
+        type: array
+      message:
+        description: 提示信息
+        type: string
+    type: object
+  tools.Resp:
+    properties:
+      code:
+        description: 业务响应状态码
+        type: integer
+      data:
+        description: 数据
+      message:
+        description: 提示信息
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: 1721121325@qq.com
+    name: rollFish
+  description: 对知乎基本功能的一次初级仿写
+  title: 伪知乎
+  version: "1.0"
+paths:
+  /register:
+    post:
+      consumes:
+      - application/json
+      description: 进行用户注册
+      parameters:
+      - description: Bearer 用户令牌
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: 业务响应状态码
+        in: query
+        name: code
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api._ResponsePostList'
+      security:
+      - ApiKeyAuth: []
+      summary: 用户的注册界面
+      tags:
+      - 用户注册
+  /user/article/collect:
+    post:
+      consumes:
+      - application/json
+      description: 对该文章感兴趣可以进行收藏
+      parameters:
+      - description: Bearer 用户令牌
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: 业务响应状态码
+        in: query
+        name: code
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api._ResponsePostList'
+      security:
+      - ApiKeyAuth: []
+      summary: 对该文章感兴趣可以进行收藏
+      tags:
+      - 收藏文章
+  /user/article/post:
+    post:
+      consumes:
+      - application/json
+      description: 用户可以发布自己的所思所想
+      parameters:
+      - description: Bearer 用户令牌
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: 业务响应状态码
+        in: query
+        name: code
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api._ResponsePostList'
+      security:
+      - ApiKeyAuth: []
+      summary: 发布文章
+      tags:
+      - 文章
+  /user/changename:
+    put:
+      consumes:
+      - application/json
+      description: 进行用用户名的修改
+      parameters:
+      - description: Bearer 用户令牌
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: 业务响应状态码
+        in: query
+        name: code
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api._ResponsePostList'
+      security:
+      - ApiKeyAuth: []
+      summary: 用户修改用户名界面
+      tags:
+      - 修改用户名
+  /user/changenpass:
+    put:
+      consumes:
+      - application/json
+      description: 进行用户密码的修改
+      parameters:
+      - description: Bearer 用户令牌
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: 业务响应状态码
+        in: query
+        name: code
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api._ResponsePostList'
+      security:
+      - ApiKeyAuth: []
+      summary: 用户修改密码界面
+      tags:
+      - 修改密码
+  /user/collectarticle:
+    get:
+      consumes:
+      - application/json
+      description: 查看收藏
+      parameters:
+      - description: Bearer 用户令牌
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: 业务响应状态码
+        in: query
+        name: code
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api._ResponsePostList'
+      security:
+      - ApiKeyAuth: []
+      summary: 查看用户收藏的文章
+      tags:
+      - 收藏
+  /user/collectquestion:
+    get:
+      consumes:
+      - application/json
+      description: 查看收藏
+      parameters:
+      - description: Bearer 用户令牌
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: 业务响应状态码
+        in: query
+        name: code
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api._ResponsePostList'
+      security:
+      - ApiKeyAuth: []
+      summary: 查看用户收藏的问题
+      tags:
+      - 收藏
+  /user/infomation:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Bearer 用户令牌
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: 业务响应状态码
+        in: query
+        name: code
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api._ResponsePostList'
+      security:
+      - ApiKeyAuth: []
+      summary: 向用户展示自己的个人信息
+      tags:
+      - 查看个人信息
+  /user/login:
+    post:
+      consumes:
+      - application/json
+      description: 进行用户登录
+      parameters:
+      - description: Bearer 用户令牌
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: 业务响应状态码
+        in: query
+        name: code
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api._ResponsePostList'
+      security:
+      - ApiKeyAuth: []
+      summary: 用户的登录界面
+      tags:
+      - 用户登录
+  /user/question/answer:
+    post:
+      consumes:
+      - application/json
+      description: 用户可以自行回答问题
+      parameters:
+      - description: Bearer 用户令牌
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: 业务响应状态码
+        in: query
+        name: code
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api._ResponsePostList'
+      security:
+      - ApiKeyAuth: []
+      summary: 对问题进行回答
+      tags:
+      - 回答
+  /user/question/collect:
+    post:
+      consumes:
+      - application/json
+      description: 对该问题感兴趣可以进行收藏
+      parameters:
+      - description: Bearer 用户令牌
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: 业务响应状态码
+        in: query
+        name: code
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api._ResponsePostList'
+      security:
+      - ApiKeyAuth: []
+      summary: 对该问题感兴趣可以进行收藏
+      tags:
+      - 收藏问题
+  /user/question/post:
+    post:
+      consumes:
+      - application/json
+      description: 用户可以自行发布自己的问题
+      parameters:
+      - description: Bearer 用户令牌
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: 业务响应状态码
+        in: query
+        name: code
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api._ResponsePostList'
+      security:
+      - ApiKeyAuth: []
+      summary: 发布问题界面
+      tags:
+      - 问题
+  /user/remark/answer:
+    post:
+      consumes:
+      - application/json
+      description: 评论
+      parameters:
+      - description: Bearer 用户令牌
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: 业务响应状态码
+        in: query
+        name: code
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api._ResponsePostList'
+      security:
+      - ApiKeyAuth: []
+      summary: 对问题的回答进行评论
+      tags:
+      - 评论
+  /user/remark/question:
+    post:
+      consumes:
+      - application/json
+      description: 评论
+      parameters:
+      - description: Bearer 用户令牌
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: 业务响应状态码
+        in: query
+        name: code
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api._ResponsePostList'
+      security:
+      - ApiKeyAuth: []
+      summary: 对发布的文章进行评论
+      tags:
+      - 评论
+swagger: "2.0"
