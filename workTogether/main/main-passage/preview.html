@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>预览-知乎</title>
+    <link rel="stylesheet" href="./preview.css">
+</head>
+<body>
+    <header class="app-header">
+        <div class="app-header-fixed">   
+                <img src="./header.png" alt="" class="header">
+              <div class="avator"></div>
+              <button type="button" class="button--blue"><svg width="24" height="24" viewBox="0 0 24 24" class="Zi Zi--EditSurround" fill="currentColor"><path fill-rule="evenodd" d="M3.55 5.97a2.415 2.415 0 0 1 2.415-2.416h7.56a.75.75 0 0 1 0 1.5h-7.56a.915.915 0 0 0-.915.915v12.072c0 .505.41.915.915.915h12.074c.506 0 .915-.41.915-.915v-7.557a.75.75 0 0 1 1.5 0v7.557a2.415 2.415 0 0 1-2.415 2.415H5.965A2.415 2.415 0 0 1 3.55 18.04V5.969Z" clip-rule="evenodd"></path><path fill-rule="evenodd" d="M20.239 3.77a.75.75 0 0 1 0 1.06l-8.206 8.206a.75.75 0 0 1-1.06-1.06l8.205-8.206a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd"></path></svg>写文章   
+            </button>              
+        </div>
+    </header>
+    <menu class="avator-menu">  
+        <div class="avator-arrow"></div>
+        <div class="avator-menu-content">   
+            <a href="../main-collection/main-collection.html"> 
+                <svg width="16" height="16" viewBox="0 0 24 24"  fill="rgb(135,144,164)" ><path d="M10.484 3.307c.673-1.168 2.358-1.168 3.032 0l2.377 4.122a.25.25 0 0 0 .165.12l4.655.987c1.319.28 1.84 1.882.937 2.884l-3.186 3.535a.25.25 0 0 0-.063.193l.5 4.733c.142 1.34-1.222 2.33-2.453 1.782l-4.346-1.938a.25.25 0 0 0-.204 0l-4.346 1.938c-1.231.549-2.595-.442-2.453-1.782l.5-4.733a.25.25 0 0 0-.064-.193L2.35 11.42c-.903-1.002-.382-2.604.937-2.884l4.655-.987a.25.25 0 0 0 .164-.12l2.378-4.122Z"></path></svg>
+                我的收藏    
+            </a>
+            <a href="../main-individual/main-individual.html"> 
+                <svg width="16" height="16" viewBox="0 0 24 24" class="ZDI ZDI--UserFill24" fill="currentColor"><path fill-rule="evenodd" d="M12 2.5A5.5 5.5 0 0 0 6.5 8a5.5 5.5 0 0 0 5.5 5.5A5.5 5.5 0 0 0 17.5 8 5.5 5.5 0 0 0 12 2.5ZM7.224 14.632c.68-.294 1.454-.35 2.501-.206a16.62 16.62 0 0 0 4.55 0c1.047-.144 1.821-.088 2.501.206.656.284 1.155.766 1.676 1.27 1.536 1.489 2.436 3.37 2.649 4.911.107.777-.536 1.337-1.201 1.337H4.1c-.665 0-1.308-.56-1.2-1.337.212-1.54 1.112-3.422 2.648-4.91.52-.505 1.02-.987 1.676-1.271Z" clip-rule="evenodd"></path></svg>
+                个人信息    
+            </a>
+            <a href="../main-password/main-password.html"> 
+                <svg width="16" height="16" viewBox="0 0 24 24" class="ZDI ZDI--GearFill24" fill="currentColor"><path fill-rule="evenodd" d="M10.809 2.17a2.415 2.415 0 0 1 2.382 0l6.842 3.878a2.415 2.415 0 0 1 1.224 2.1v7.703c0 .87-.468 1.672-1.224 2.101L13.19 21.83a2.415 2.415 0 0 1-2.381 0l-6.842-3.878a2.415 2.415 0 0 1-1.224-2.1V8.148c0-.87.467-1.672 1.224-2.101l6.842-3.878Zm-2.633 9.82a3.858 3.858 0 1 1 7.716 0 3.858 3.858 0 0 1-7.716 0Zm3.858-2.357a2.358 2.358 0 1 0 0 4.716 2.358 2.358 0 0 0 0-4.716Z" clip-rule="evenodd"></path></svg>
+                设置    
+            </a>
+        </div>
+    </menu>
+<main>  
+ <div class="previewPost-main">   
+     <head> 
+        <h1>111</h1>
+        <div class="postAuther">   
+              <div class="postAvator">  
+                        
+              </div>
+              <a>  
+                
+              </a>
+             </div>
+      </head>
+      <div style="width: 690px;"> 
+        <p>    
+
+        </p>
+      </div>
+      <div class="contentitem-time">   
+        编辑于：
+        <span id="currenttime"></span>
+    </div>
+
+ </div>
+</main>
+    <script>    
+    let menu = document.querySelector('.avator-menu')
+let avator = document.querySelector('.avator')
+avator.addEventListener('click',function(e){ 
+    if(menu.style.visibility == 'hidden'){  
+        menu.style.visibility = 'visible'
+        menu.style.top = '45px'
+        menu.style.opacity = '1'
+        e.stopPropagation();
+    }else{  
+        menu.style.transition = 'all .2s linear'
+        menu.style.top = '40px'
+        menu.style.opacity = '0'
+        menu.style.visibility = 'hidden'
+        e.stopPropagation();
+    }
+})
+document.addEventListener('click',function () {
+        menu.style.transition = 'all .2s linear'
+        menu.style.top = '40px'
+        menu.style.opacity = '0'
+        menu.style.visibility = 'hidden'
+      })
+      let currentHeader = localStorage.getItem('passageHeader')
+    let currentContent = localStorage.getItem('passageContent')
+    let currentTime = localStorage.getItem('currentTime')
+    let time = document.getElementById('currenttime')
+    console.log(currentTime);
+    let h1 = document.querySelector('h1')
+    let p =document.querySelector('p')
+    h1.innerHTML = currentHeader
+     p.innerHTML = currentContent
+     time.innerHTML = currentTime
+     let btn = document.querySelector('.button--blue')
+     btn.addEventListener('click',function(){   
+        window.open('./main-passage.html')
+     })
+     let a = document.querySelectorAll('.avator-menu-content a')
+    for(i=0;i<a.length;i++)  { 
+        a[i].addEventListener('mouseover' , function(){    
+             this.style.backgroundColor='rgb(246,246,246)'
+        })
+        a[i].addEventListener('mouseout' , function(){    
+             this.style.backgroundColor='white'
+        })
+    }
+    </script>
+</body>
+</html>
