@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录-知乎</title>
+    <link rel="stylesheet" href="./class.css">
+</head>
+<body>
+    <div class="header"></div>
+    <div class="log-content">   
+       <div class="log-content-header">密码登录</div>
+       <div class="log-content-main">    
+        <input type="text" class="usernames" placeholder="请输入用户名"><br><br>
+        <div class="passwords">   
+            <label for="">  
+                <img src="./open.png" alt="">
+            </label>
+            <input type="password" class="passwords-content" placeholder="请输入密码" >
+        </div>
+        <br><br><br>
+        <button class="login">登录</button>
+       </div>
+       <div class="log-content-footer">    
+        未注册手机验证后自动登录，注册即代表同意《知乎协议》《隐私保护指引》
+       </div>
+    </div>
+</body>
+<script>    
+let btn = document.querySelector(".login")
+btn.onmouseover = function() {
+    this.style.backgroundColor='rgb(58,94,192)'
+            }
+            btn.onmouseout = function() { 
+                this.style.backgroundColor='rgb(47,107,224)';
+            }   
+let img = document.querySelector('img')
+let input = document.querySelector('.passwords-content')
+var flag = 0
+img.addEventListener('click',function(){    
+    if(flag==0){    
+        img.src = 'close.png'
+    input.type="text"
+    flag = 1
+    } else{ 
+         img.src = 'open.png'
+         input.type="password"
+         flag = 0
+    }
+
+})
+let username =document.querySelector('.usernames')
+btn.addEventListener('click',function(){        
+    fetch("localhost:8080" , {  
+        method: 'POST',
+        body:  `Username=${username.value}`
+    })
+    // .then(res=>res.json())//这一步是为了获取响应体
+    // .then(res=>console.log(res))
+    .then(function(res){    
+        if(res.status==200){    
+         window.location.href = '../main/main-homepage/main-homepage.html'
+        } else {    
+            alert('密码错误！')
+        }
+    })
+    // window.location.href = '../main/main-homepage/main-homepage.html'
+})
+    
+
+</script>
+</html>
